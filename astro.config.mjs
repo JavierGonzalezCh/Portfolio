@@ -12,5 +12,5 @@ export default defineConfig({
   },
   integrations: [react()],
   site: "https://javiergonzalezch.github.io",
-  base: "/Portfolio/",
+  base: "/",
 });

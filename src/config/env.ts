@@ -1,1 +1,0 @@
-export const appUrl = import.meta.env.PUBLIC_SITE_NAME;
