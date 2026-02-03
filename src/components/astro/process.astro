@@ -1,0 +1,77 @@
+---
+import type { Content } from '../../types';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+---
+
+<section class="py-24 px-6 relative z-10 border-t border-tech-blue-secondary/30 bg-tech-blue-primary">
+  <div class="max-w-7xl mx-auto">
+    
+    <h2 class="reveal-process text-3xl md:text-5xl font-serif mb-16 text-center text-tech-text-primary">
+      {content.process.title}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+      
+      <div class="hidden md:block absolute top-12 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tech-gold/30 to-transparent"></div>
+
+      {content.process.items.map((item, index) => (
+        
+        <div 
+          class="reveal-process relative"
+          style={`transition-delay: ${index * 150}ms`}
+        >
+          <div class="flex flex-col items-center text-center">
+            
+            <div class="w-24 h-24 rounded-full bg-tech-gray-card border border-tech-gold/30 flex items-center justify-center text-xl font-mono text-tech-gold mb-6 relative z-10 shadow-[0_0_15px_rgba(217,119,6,0.2)] bg-tech-blue-primary">
+              {item.step}
+            </div>
+            
+            <h3 class="text-lg font-bold mb-3 text-tech-text-primary">{item.title}</h3>
+            
+            <p class="text-sm text-tech-text-secondary px-4">
+              {item.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // Script de animación compartido
+  // Si tienes este script en Services.astro, podrías moverlo a un archivo global
+  // pero ponerlo aquí tampoco daña nada (scoped).
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.reveal-process').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  /* Estados de Animación */
+  .reveal-process {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .reveal-process.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

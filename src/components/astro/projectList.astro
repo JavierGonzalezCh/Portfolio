@@ -1,0 +1,81 @@
+---
+import type { Content } from '../../types';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+const { projects } = content;
+---
+
+<section id="projects" class="py-24 px-6 relative z-10 bg-tech-blue-primary">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="mb-20 text-center fade-in-section">
+       <h2 class="text-4xl md:text-6xl font-serif mb-6 text-tech-text-primary">
+         {projects.title}
+       </h2>
+       <div class="w-px h-[60px] bg-gradient-to-b from-tech-gold to-transparent mx-auto"></div>
+    </div>
+
+    <div class="relative min-h-screen pb-24">
+      {projects.items.map((project, index) => (
+        
+        <article 
+          class="sticky-card sticky py-8 md:py-12 flex items-center justify-center"
+          style={`top: calc(10vh + ${index * 40}px); z-index: ${index + 1};`}
+        >
+          <button 
+            class="project-trigger group relative w-full max-w-5xl text-left bg-tech-gray-card border border-tech-blue-secondary/50 rounded-3xl overflow-hidden shadow-2xl hover:border-tech-gold/40 transition-colors"
+            data-json={JSON.stringify(project)}
+          >
+             <div class="flex flex-col md:flex-row h-full min-h-[400px]">
+                <div class="flex-1 p-8 md:p-12 flex flex-col justify-between bg-gradient-to-br from-tech-gray-card via-tech-gray-charcoal to-black">
+                   <h3 class="text-3xl font-bold text-white">{project.title}</h3>
+                   </div>
+                
+                <div class="md:w-3/5 relative overflow-hidden h-[300px] md:h-auto">
+                   <img src={project.images[0]} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0" />
+                </div>
+             </div>
+          </button>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { openProject } from '../../store/projectStore';
+
+  const buttons = document.querySelectorAll('.project-trigger');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const jsonString = btn.getAttribute('data-json');
+      if (!jsonString) return;
+      const projectData = JSON.parse(jsonString);
+      openProject(projectData);
+    });
+  });
+</script>
+
+<style>
+  /* Reemplazo de motion.initial={{ y: 50, opacity: 0 }} */
+  .sticky-card {
+    animation: slideUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  /* Stagger effect (retraso en cascada) usando nth-child */
+  .sticky-card:nth-child(1) { animation-delay: 0.1s; }
+  .sticky-card:nth-child(2) { animation-delay: 0.2s; }
+  .sticky-card:nth-child(3) { animation-delay: 0.3s; }
+  .sticky-card:nth-child(4) { animation-delay: 0.4s; }
+
+  @keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

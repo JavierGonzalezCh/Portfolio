@@ -1,0 +1,36 @@
+---
+import Hero from "../../components/react/hero";
+import Journey from "../../components/react/journey";
+import Navbar from "../../components/react/navbar";
+import ProjectModal from "../../components/react/projectModal";
+import ProjectsList from "../../components/astro/projectList.astro";
+import { CONTENT } from "../../constants";
+import Layout from "../../layouts/Layout.astro";
+import ChatWidget from "../../components/react/chatWidget";
+import Services from "../../components/astro/services.astro";
+import Process from "../../components/astro/process.astro";
+const content = CONTENT["es"];
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title="Dev Portfolio | Creative Developer">
+  <Navbar client:load currentLang="es" currentPath={currentPath} />
+
+  <main class="relative z-10">
+    <Hero client:visible />
+
+    <div class="relative bg-tech-gray-charcoal/30 backdrop-blur-sm">
+      <Journey client:visible content={content} />
+
+      <Services content={content} />
+
+      <ProjectsList content={content} />
+
+      <Process content={content} />
+    </div>
+  </main>
+
+  <ProjectModal client:idle labels={content.projects.labels} />
+
+  <ChatWidget client:idle />
+</Layout>
