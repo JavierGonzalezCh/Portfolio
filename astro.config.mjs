@@ -11,6 +11,14 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [react()],
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false
+    }
+  },
   site: "https://javiergonzalezch.github.io",
   base: "/",
 });
