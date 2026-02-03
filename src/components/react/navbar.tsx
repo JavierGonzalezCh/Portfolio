@@ -125,7 +125,6 @@ const Navbar = ({ currentLang, currentPath }: NavbarProps) => {
           </div>)}
       </motion.nav>
 
-      {/* 3. MENÚ MÓVIL (Sin cambios lógicos, solo estéticos) */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -174,7 +173,6 @@ const Navbar = ({ currentLang, currentPath }: NavbarProps) => {
   );
 };
 
-// Componente pequeño para los iconos del Dock/Header
 const SocialLink = ({ href, Icon, label }: { href: string, Icon: any, label: string }) => (
   <a
     href={href}
@@ -187,7 +185,6 @@ const SocialLink = ({ href, Icon, label }: { href: string, Icon: any, label: str
   </a>
 );
 
-// Componente más grande para el menú móvil
 const MobileSocialLink = ({ href, Icon }: { href: string, Icon: any }) => (
   <a
     href={href}
