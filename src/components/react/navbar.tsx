@@ -66,9 +66,10 @@ export default function Navbar({ currentLang, currentPath }: NavbarProps) {
             <motion.a
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              href={`/${currentLang}`}
-              className="left-12 z-60 text-3xl font-bold font-serif tracking-tighter text-tech-text-primary mix-blend-difference"
+              href={`/`}
+              className="left-12 z-60 text-3xl items-center font-bold font-serif tracking-tighter text-tech-text-primary mix-blend-difference flex flex-row gap-2"
             >
+              <img src="/favicon.png" alt="Javier Gonzalez Chima"  className='w-12 h-12'/>
               Javier Gonzalez Ch<span className="text-tech-gold">.</span>
             </motion.a>
 
