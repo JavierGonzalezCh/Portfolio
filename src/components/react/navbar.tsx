@@ -1,23 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Globe, Mail, Github, Linkedin, FileText, Download } from 'lucide-react';
-// import linkedin from '../../assets/linkedin.svg'; // Si prefieres tu SVG, úsalo, aquí uso Lucide por defecto
+import { Menu, X, Globe, Mail, Github, Linkedin, Download } from 'lucide-react';
 import { CONTENT } from '../../constants';
 
-// --- CONFIGURACIÓN DE TUS ENLACES AQUÍ ---
 const LINKS = {
-  github: "https://github.com/tu-usuario",
-  linkedin: "https://linkedin.com/in/tu-usuario",
-  email: "mailto:tu@email.com",
-  cv: "/files/mi-cv-final.pdf" // Ruta a tu archivo PDF en la carpeta public
+  github: "https://github.com/JavierGonzalezCh",
+  linkedin: "https://www.linkedin.com/in/javiergonzalezch",
+  email: "mailto:javiergo.2502@gmail.com",
+  cv: "/files/Javier Gonzalez CV.pdf"
 };
 
 interface NavbarProps {
-  currentLang: 'es' | 'en';
+  currentLang: 'es';
   currentPath: string;
 }
 
-const Navbar = ({ currentLang, currentPath }: NavbarProps) => {
+export default function Navbar({ currentLang, currentPath }: NavbarProps) {
   const content = CONTENT[currentLang];
 
   const targetLang = currentLang === 'es' ? 'en' : 'es';
@@ -28,16 +26,21 @@ const Navbar = ({ currentLang, currentPath }: NavbarProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const checkPosition = () => {
       setIsScrolled(window.scrollY > 100);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    checkPosition();
+
+    window.addEventListener('scroll', checkPosition);
+
+    return () => window.removeEventListener('scroll', checkPosition);
   }, []);
 
   const navLinks = [
+    { name: content.nav.home, href: '' },
     { name: content.nav.projects, href: '#projects' },
-    { name: content.nav.expertise, href: '#services' },
+    { name: content.nav.expertise, href: '#stack' },
     { name: content.nav.journey, href: '#journey' },
     { name: content.nav.contact, href: '#contact' },
   ];
@@ -113,13 +116,13 @@ const Navbar = ({ currentLang, currentPath }: NavbarProps) => {
                 </li>
               ))}
             </ul>
-            <a
+            {/*  <a
               href={targetHref}
               className="flex items-center gap-2 text-xs font-mono text-tech-text-secondary hover:text-tech-gold transition-colors"
             >
               <Globe size={14} />
               <span className={`hidden ${isScrolled ? 'sm:inline' : ''}`}>{label}</span>
-            </a>
+            </a> */}
 
 
           </div>)}
@@ -154,14 +157,12 @@ const Navbar = ({ currentLang, currentPath }: NavbarProps) => {
               ))}
             </ul>
 
-            {/* Redes en móvil */}
             <div className="flex gap-6 relative z-10">
               <MobileSocialLink href={LINKS.github} Icon={Github} />
               <MobileSocialLink href={LINKS.linkedin} Icon={Linkedin} />
               <MobileSocialLink href={LINKS.email} Icon={Mail} />
             </div>
 
-            {/* CV en móvil */}
             <a href={LINKS.cv} className="mt-12 relative z-10 px-8 py-3 bg-tech-gold text-tech-bg font-bold rounded-full flex items-center gap-2">
               Download CV <Download size={18} />
             </a>
@@ -195,5 +196,3 @@ const MobileSocialLink = ({ href, Icon }: { href: string, Icon: any }) => (
     <Icon size={20} />
   </a>
 );
-
-export default Navbar;

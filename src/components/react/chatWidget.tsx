@@ -14,9 +14,7 @@ interface Message {
 }
 
 const ChatWidget: React.FC = () => {
-  // 1. Conexión al Store Global
-  const currentLang = useStore(language);
-  const content = CONTENT[currentLang]; // El contenido se actualiza solo si cambia el idioma
+  const content = CONTENT['es'];
 
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -52,7 +50,7 @@ const ChatWidget: React.FC = () => {
 
     try {
         // Call AI Service passing the context
-        const aiText = await generateAIResponse(userMsg.text, content, currentLang);
+        const aiText = await generateAIResponse(userMsg.text, content, 'es');
         
         setMessages(prev => [...prev, {
             id: (Date.now() + 1).toString(),
@@ -60,11 +58,10 @@ const ChatWidget: React.FC = () => {
             text: aiText
         }]);
     } catch (error) {
-        // Fallback error message
         setMessages(prev => [...prev, {
             id: (Date.now() + 1).toString(),
             role: 'assistant',
-            text: currentLang === 'en' ? "I'm having trouble connecting. Try again?" : "Tengo problemas de conexión. ¿Intentas de nuevo?"
+            text: "Tengo problemas de conexión. ¿Intentas de nuevo?"
         }]);
     } finally {
         setIsTyping(false);
@@ -74,25 +71,21 @@ const ChatWidget: React.FC = () => {
   return (
     <>
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
-        {/* WhatsApp Button - Mantenlo aquí o muévelo a un componente Astro estático si prefieres */}
         <a 
-          href="https://wa.me/1234567890" 
+          href="https://wa.me/573013460118" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-700 transition-all hover:scale-110"
+          className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-700 transition-all hover:scale-110"
         >
-          <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-             <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01C17.18 3.03 14.69 2 12.04 2zM12.05 20.21c-1.5 0-2.97-.39-4.26-1.15l-.3-.18-3.11.82.83-3.04-.19-.31c-.82-1.33-1.26-2.87-1.26-4.44 0-4.63 3.77-8.4 8.4-8.4 2.25 0 4.36.88 5.95 2.47 1.59 1.59 2.47 3.69 2.47 5.94 0 4.63-3.77 8.39-8.39 8.39z"/>
-          </svg>
+          <img src="/Digital_Glyph_White.svg" alt="WhatsApp" className='w-10 h-10' />
         </a>
 
-        {/* Chat Toggle */}
-        <button
+        {/* <button
           onClick={() => setIsOpen(!isOpen)}
           className="w-14 h-14 bg-tech-gold rounded-full flex items-center justify-center text-white shadow-lg shadow-tech-gold/30 hover:bg-tech-gold-dark transition-all hover:scale-110"
         >
           {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
-        </button>
+        </button> */}
       </div>
 
       <AnimatePresence>

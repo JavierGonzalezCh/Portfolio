@@ -1,0 +1,377 @@
+---
+import { ArrowUpRight } from "lucide-react";
+
+const CATEGORIES = [
+  {
+    title: "Software Empresarial",
+    shortDesc:
+      "Sistemas nerviosos centrales para empresas. Transformo procesos manuales y hojas de cálculo en plataformas robustas que controlan inventarios complejos, gestionan precios variables y miden el rendimiento de tu equipo en tiempo real.",
+    stack: ["React", "Node.js", "PostgreSQL", "Docker"],
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+    examples: [
+      {
+        name: "ERP de Gestión de Bodegas",
+        description:
+          "Sistema de control de inventario de doble variable. Permite registrar entradas y salidas con precisión, controlando simultáneamente peso y cantidad de bultos para evitar mermas.",
+        outcomes: [
+          "Alertas automáticas de Sobrestock/Bajo stock",
+          "Conciliación exacta de Kilos vs. Bultos",
+          "Trazabilidad completa de movimientos",
+        ],
+        link: "#",
+        media: [
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200",
+          },
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=1200",
+          },
+        ],
+      },
+      {
+        name: "ERP Joyería (Plata & Diseño)",
+        description:
+          "Plataforma integral conectada al mercado de valores. Calcula el precio de venta final basándose en la cotización de la plata en tiempo real. Gestiona catálogo, clientes y empleados.",
+        outcomes: [
+          "Actualización de precios automática (Live)",
+          "Control de ventas y órdenes en tiempo real",
+          "Diseño de catálogos dinámicos desde stock",
+        ],
+        link: "#",
+        media: [
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1617038224558-28809c881697?auto=format&fit=crop&q=80&w=1200",
+          },
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=1200",
+          },
+        ],
+      },
+      {
+        name: "SaaS Gestor de Catálogos",
+        description:
+          "Plataforma Multi-tenant con gestión avanzada de roles (RBAC). Permite a múltiples empresas crear catálogos personalizados y medir el interés real de sus clientes.",
+        outcomes: [
+          "Analítica de producto más visitado",
+          "Personalización de catálogo por cliente",
+          "Arquitectura escalable Multi-tenant",
+        ],
+        link: "#",
+        media: [
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200",
+          },
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Desarrollo Web",
+    shortDesc:
+      "Ingeniería visual y rendimiento. Sitios corporativos y landings diseñados para posicionar autoridad de marca y convertir visitas en contactos cualificados.",
+    stack: ["Astro", "Tailwind", "Next.js", "SEO Avanzado"],
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800",
+    examples: [
+      {
+        name: "Landing Page Grupo Lab",
+        description:
+          "Página de aterrizaje optimizada para laboratorio clínico. Estructurada para generar confianza inmediata y facilitar la reserva de servicios médicos.",
+        outcomes: [
+          "Diseño limpio y profesional",
+          "Carga ultrarrápida para retención móvil",
+          "Call-to-actions claros a WhatsApp/Citas",
+        ],
+        link: "https://ejemplo.com",
+        media: [
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200",
+          },
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200",
+          },
+        ],
+      },
+      {
+        name: "Web Corporativa IAE Colombia",
+        description:
+          "Portal institucional robusto. Arquitectura de información diseñada para organizar gran cantidad de contenido educativo y corporativo de forma accesible.",
+        outcomes: [
+          "Navegación intuitiva",
+          "Optimización SEO institucional",
+          "Interfaz autoadministrable",
+        ],
+        link: "#",
+        media: [
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200",
+          },
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Asistentes IA",
+    shortDesc:
+      "Automatización inteligente. Agentes que entienden el contexto de tu negocio para atender clientes, agendar citas y resolver dudas técnicas sin descanso.",
+    stack: ["OpenAI API", ".Net", "RAG", "WhatsApp API"],
+    image:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+    examples: [
+      {
+        name: "Asistente Agendador de Citas",
+        description:
+          "Bot conversacional inteligente. Gestiona disponibilidad, confirma horarios y agenda reuniones directamente en el calendario, reduciendo la carga administrativa.",
+        outcomes: [
+          "Gestión autónoma de agenda",
+          "Reducción de 'No-Shows' (ausencias)",
+          "Atención inmediata 24/7",
+        ],
+        link: "#",
+        media: [
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=1200",
+          },
+          {
+            type: "video",
+            url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+          },
+        ],
+      },
+      {
+        name: "Agente Zona Biker",
+        description:
+          "Asistente virtual especializado en motociclismo. Entrenado para responder consultas sobre repuestos, servicios de taller y recomendaciones técnicas.",
+        outcomes: [
+          "Filtrado de clientes cualificados",
+          "Respuestas técnicas precisas",
+          "Mejora en experiencia de usuario",
+        ],
+        link: "#",
+        media: [
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&q=80&w=1200",
+          },
+          {
+            type: "image",
+            url: "https://images.unsplash.com/photo-1558980664-2506fca6bfc2?auto=format&fit=crop&q=80&w=1200",
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const CARD_OFFSET = 150;
+const INITIAL_TOP = 15;
+---
+
+<section
+  id="proyects"
+  class="py-24 px-4 md:px-6 relative bg-tech-bg overflow-visible"
+>
+  <div
+    class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black to-transparent z-30 pointer-events-none"
+  >
+  </div>
+  <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+    >
+    </div>
+  </div>
+
+  <div
+    class="absolute top-20 left-1/2 -translate-x-1/2 w-150 h-100 bg-tech-orange/10 blur-[120px] rounded-full pointer-events-none z-0"
+  >
+  </div>
+
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="mb-32  mt-12 text-center">
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
+              bg-tech-orange/10 border border-tech-orange/20
+              text-tech-orange text-xs font-mono tracking-widest uppercase mb-6"
+      >
+        Portfolio & Casos de Éxito
+      </div>
+      <h2
+        class="bg-clip-text text-4xl md:text-6xl xl:text-7xl font-bold font-serif text-transparent bg-linear-to-r from-tech-gold via-tech-orange to-tech-gold bg-size-[200%_auto] animate-gradient-x py-1"
+      >
+        Mis Proyectos
+      </h2>
+      <div class="relative w-48 h-[2px] mx-auto mt-6">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-tech-gold to-transparent blur-sm opacity-70"
+        >
+        </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-tech-orange to-transparent"
+        >
+        </div>
+      </div>
+      <p
+        class="text-tech-text-secondary mt-8 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed"
+      >
+        Soluciones digitales diseñadas para generar impacto real: optimización
+        operativa, crecimiento comercial y automatización inteligente.
+      </p>
+    </div>
+
+    <div class="flex flex-col">
+      {
+        CATEGORIES.map((category, index) => (
+          <article
+            class="sticky-card sticky w-full flex items-center justify-center transition-transform duration-500"
+            style={`
+            top: calc(${INITIAL_TOP}vh + ${index * CARD_OFFSET}px); 
+            z-index: ${index + 1};
+            padding-bottom: ${index === CATEGORIES.length - 1 ? "0" : "4rem"};
+          `}
+          >
+            <button
+              class="project-trigger group relative w-full max-w-6xl text-left rounded-3xl overflow-hidden transition-all duration-500 ease-out hover:-translate-y-4 hover:shadow-[0_-10px_60px_-15px_rgba(255,69,0,0.15)] shadow-2xl border border-white/5 bg-[#0a0a0a] cursor-pointer"
+              data-project={JSON.stringify(category)}
+              aria-label={`Ver detalles de ${category.title}`}
+            >
+              {/* Sombra Superior Invertida (Separación visual) */}
+              <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/80 to-transparent z-30 pointer-events-none" />
+
+              {/* Borde Brillante (Naranja/Dorado) al Hover */}
+              <div class="absolute inset-0 rounded-3xl border border-white/5 group-hover:border-tech-orange/50 transition-colors duration-500 z-20 pointer-events-none" />
+
+              {/* Fondo Sutil con un toque de gradiente */}
+              <div class="absolute inset-0 bg-gradient-to-br from-[#0F1115] to-black z-0" />
+
+              <div class="relative z-10 flex flex-col md:flex-row h-full min-h-[500px]">
+                {/* Lado Izquierdo: Info */}
+                <div class="flex-1 p-8 md:p-12 flex flex-col justify-between relative">
+
+                  {/* Centro: Título y Descripción */}
+                  <div class="py-8">
+                    <h3 class="text-4xl md:text-6xl font-bold text-white mb-6 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:via-tech-gold group-hover:to-tech-orange transition-all duration-500">
+                      {category.title}
+                    </h3>
+
+                    <p class="text-tech-text-secondary text-lg md:text-xl font-light leading-relaxed mb-8 pl-4 border-l-2 border-white/10 group-hover:border-tech-orange transition-colors duration-500 line-clamp-3 md:line-clamp-none max-w-xl">
+                      {category.shortDesc}
+                    </p>
+
+                    {/* Stack Pills */}
+                    <div class="flex flex-wrap gap-3">
+                      {category.stack.map((tech) => (
+                        <span class="text-xs font-mono text-tech-gold/80 bg-tech-gold/5 px-3 py-1.5 rounded-full border border-tech-gold/10 group-hover:border-tech-gold/30 transition-colors">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Bottom: CTA */}
+                  <div class="flex items-center gap-3 text-white font-medium group/btn mt-4">
+                    <span class="border-b border-tech-orange/50 text-white group-hover:text-tech-orange transition-colors duration-300 pb-0.5">
+                      Ver ejemplos y proyectos
+                    </span>
+                    <div class="bg-tech-orange/10 p-2 rounded-full border border-tech-orange/20 group-hover:bg-tech-orange group-hover:text-black transition-all duration-300">
+                      <ArrowUpRight
+                        size={18}
+                        className="group-hover/btn:rotate-45 transition-transform duration-300"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Lado Derecho: Imagen */}
+                <div class="md:w-1/2 relative overflow-hidden h-[300px] md:h-auto border-l border-white/5">
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent z-10 opacity-80" />
+                  <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-transparent to-transparent z-10 opacity-60" />
+                  <div class="absolute inset-0 bg-tech-orange/20 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20 pointer-events-none" />
+
+                  <img
+                    src={category.image}
+                    alt={category.title}
+                    class="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110 grayscale group-hover:grayscale-0"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </button>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { openProject } from "../../store/projectStore";
+
+  const buttons = document.querySelectorAll(".project-trigger");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const jsonString = btn.getAttribute("data-project");
+      if (!jsonString) return;
+      const projectData = JSON.parse(jsonString);
+      openProject(projectData);
+    });
+  });
+</script>
+
+<style>
+  @keyframes gradient-x {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+  }
+
+  /* Animación de entrada de tarjetas */
+  .sticky-card {
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  .sticky-card:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  .sticky-card:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .sticky-card:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+import Hero from "../components/react/hero";
+import Journey from "../components/react/journey";
+import Navbar from "../components/react/navbar";
+import ProjectModal from "../components/react/projectModal";
+import Projects from "../components/astro/projects.astro";
+import Contact from "../components/astro/contact.astro";
+import { CONTENT } from "../constants";
+import Layout from "../layouts/Layout.astro";
+import ChatWidget from "../components/react/chatWidget";
+import Stack from "../components/astro/stack.astro";
+const content = CONTENT["es"] as any;
+const currentPath = Astro.url.pathname;
+---
+
+<Layout title="Javier Gonzalez Chima | Desarrollador de Software">
+  <Navbar client:load currentLang="es" currentPath={currentPath} />
+
+  <main class="relative z-10">
+    <Hero client:visible />
+
+    <div class="relative bg-tech-gray-charcoal/30 backdrop-blur-sm">
+      <Projects content={content} />
+      <Stack content={content} />
+      <Journey client:visible />
+    </div>
+    <Contact/>
+  </main>
+
+  <ProjectModal client:idle />
+  <ChatWidget client:idle />
+</Layout>

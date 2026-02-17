@@ -14,8 +14,7 @@ interface HeroContent {
 }
 
 export default function Hero() {
-  const currentLang = useStore(language);
-  const content = CONTENT[currentLang].hero as HeroContent;
+  const content = CONTENT['es'].hero as HeroContent;
   const { scrollY } = useScroll();
 
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -170,9 +169,12 @@ export default function Hero() {
           <ChevronDown size={20} className="text-tech-gold" />
         </motion.div>
         <span className="text-sm text-white uppercase tracking-widest font-mono ">
-          Scroll to explore
+          Desliza para conocer mas
         </span>
       </motion.div>
+      <div
+        className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"
+      ></div>
     </section>
   );
 }
