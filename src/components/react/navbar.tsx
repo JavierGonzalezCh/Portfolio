@@ -7,7 +7,7 @@ const LINKS = {
   github: "https://github.com/JavierGonzalezCh",
   linkedin: "https://www.linkedin.com/in/javiergonzalezch",
   email: "mailto:javiergo.2502@gmail.com",
-  cv: "/files/Javier Gonzalez CV.pdf"
+  cv: "/files/Javier Gonzalez CV Desarrollador FullStack.pdf"
 };
 
 interface NavbarProps {
@@ -117,15 +117,6 @@ export default function Navbar({ currentLang, currentPath }: NavbarProps) {
                 </li>
               ))}
             </ul>
-            {/*  <a
-              href={targetHref}
-              className="flex items-center gap-2 text-xs font-mono text-tech-text-secondary hover:text-tech-gold transition-colors"
-            >
-              <Globe size={14} />
-              <span className={`hidden ${isScrolled ? 'sm:inline' : ''}`}>{label}</span>
-            </a> */}
-
-
           </div>)}
       </motion.nav>
 
