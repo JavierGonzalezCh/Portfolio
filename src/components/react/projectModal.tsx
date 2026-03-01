@@ -120,26 +120,36 @@ export default function ProjectModal() {
             <X size={20} className="md:group-hover:rotate-90 transition-transform duration-300" />
           </button>
 
-          <div className="w-full md:w-[50%] h-[35dvh] md:h-full relative bg-black shrink-0 border-b md:border-b-0 md:border-r border-white/10 group/slider">
+         <div className="w-full md:w-[50%] h-[40dvh] md:h-full relative bg-black shrink-0 border-b md:border-b-0 md:border-r border-white/10 group/slider flex items-center justify-center overflow-hidden">
             <AnimatePresence mode='wait'>
               <motion.div
                 key={`${activeExampleIndex}-${currentSlide}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 1.02 }}
                 transition={{ duration: 0.4 }}
-                className="absolute inset-0"
+                className="w-full h-full flex items-center justify-center"
               >
                 {activeMediaItem?.type === 'video' ? (
-                  <video src={activeMediaItem.url} className="w-full h-full object-cover" autoPlay muted playsInline />
+                  <video 
+                    src={activeMediaItem.url} 
+                    className="w-full h-auto max-h-full object-contain shadow-2xl" 
+                    autoPlay 
+                    muted 
+                    loop
+                    playsInline 
+                  />
                 ) : (
-                  <img src={activeMediaItem?.url} alt={project.title} className="w-full h-full object-cover" />
+                  <img 
+                    src={activeMediaItem?.url} 
+                    alt={project.title} 
+                    className="w-full h-auto max-h-full object-contain shadow-2xl" 
+                  />
                 )}
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/40 to-transparent opacity-90 md:opacity-100" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/60 via-transparent to-transparent hidden md:block" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
 
             {hasMultipleSlides && (
               <>
