@@ -8,6 +8,7 @@ const { title } = Astro.props;
 
 <html lang="es">
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,3 +45,31 @@ const { title } = Astro.props;
 		</script>
 	</body>
 </html>
+<style>
+	html {
+		scroll-behavior: smooth;
+	}
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-track {
+		background: rgba(255, 255, 255, 0.02);
+		border-radius: 8px;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: rgba(255, 69, 0, 0.3);
+		border-radius: 8px;
+		transition: background 0.3s ease;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+		background: rgba(255, 69, 0, 0.7);
+	}
+
+	.custom-scrollbar {
+		scrollbar-width: thin;
+		scrollbar-color: rgba(255, 69, 0, 0.3) transparent;
+	}
+</style>

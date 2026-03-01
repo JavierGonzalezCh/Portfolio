@@ -1,6 +1,4 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useStore } from '@nanostores/react';
-import { language } from '../../store/languageStore';
 import { CONTENT } from '../../constants';
 import { ArrowRight, Mail, ChevronDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
@@ -52,13 +50,13 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center relative overflow-hidden bg-tech-bg text-tech-text-primary px-6 lg:px-12">
+    <section className="min-h-[100dvh] w-full flex flex-col lg:flex-row items-center justify-center relative overflow-hidden bg-tech-bg text-tech-text-primary px-6 lg:px-12 pt-24 pb-24 lg:pt-0 lg:pb-0">
       <motion.div
         style={{ y: heroImageY, opacity: heroImageOpacity }}
         className="absolute inset-0 z-0 overflow-hidden"
       >
         <img
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+          src="hero-bg.png"
           alt="Background"
           className="lg:hidden w-full h-full object-cover"
           loading="eager"
@@ -73,36 +71,22 @@ export default function Hero() {
           className="hidden lg:block w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-linear-to-r from-tech-bg via-tech-bg/30 to-tech-bg hidden lg:block" />
-        <div className="absolute inset-0 bg-linear-to-r from-tech-bg via-tech-bg/30 to-transparent lg:hidden" />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.2 }}
-        className="inline-flex lg:hidden items-center gap-2 px-3 py-1 rounded-full border border-tech-gold/30 bg-tech-gold/5 text-tech-gold text-[10px] md:text-xs font-mono uppercase tracking-[0.2em] backdrop-blur-md"
-      >
-        <span className="relative flex h-1.5 w-1.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-tech-gold opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-tech-gold"></span>
-        </span>
-        {content.role}
+        <div className="absolute inset-0 bg-linear-to-b from-tech-bg/10 via-tech-bg/30 to-tech-bg/80 lg:hidden" />
       </motion.div>
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <motion.div
-          className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 md:gap-8 order-2 lg:order-1"
-        >
+      <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center justify-center">
+
+        <motion.div className="mt-7 lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left gap-6 lg:gap-8 order-2 lg:order-1 w-full px-2 sm:px-0">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-4xl md:text-6xl xl:text-7xl font-bold leading-none tracking-tight text-white"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-white"
           >
             {content.greeting} <br />
-            <span className="bg-clip-text text-4xl md:text-6xl xl:text-7xl font-serif text-transparent bg-linear-to-r from-tech-gold via-tech-orange to-tech-gold bg-size-[200%_auto] animate-gradient-x py-1">
+            <span className="block mt-2 bg-clip-text text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-serif text-transparent bg-linear-to-r from-tech-gold via-tech-orange to-tech-gold bg-[length:200%_auto] animate-gradient-x pb-2">
               {content.role}
             </span>
           </motion.h1>
@@ -111,7 +95,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-base md:text-xl text-tech-text-secondary max-w-xl font-light leading-relaxed"
+            className="text-lg sm:text-xl md:text-2xl lg:text-xl text-tech-text-secondary max-w-xl font-light leading-relaxed px-4 lg:px-0"
           >
             {content.description}
           </motion.p>
@@ -120,23 +104,23 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-row gap-4 pt-2"
+            className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto px-6 sm:px-0"
           >
-            <a href="#projects" className="group relative px-6 py-3 bg-tech-orange text-white text-sm md:text-base rounded-full font-sans font-medium overflow-hidden transition-all hover:scale-105 hover:shadow-glow-orange flex items-center gap-2">
+            <a href="#projects" className="w-full sm:w-auto justify-center group relative px-8 py-4 lg:px-6 lg:py-3 bg-tech-orange text-white text-base lg:text-base rounded-full font-sans font-medium overflow-hidden transition-all active:scale-95 lg:hover:scale-105 hover:shadow-glow-orange flex items-center gap-2">
               <div className="absolute inset-0 w-full h-full bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
               <span className="relative z-10 flex items-center gap-2">
-                {content.ctaExplore} <ArrowRight size={16} />
+                {content.ctaExplore} <ArrowRight size={18} />
               </span>
             </a>
-            <a href="#contact" className="group px-6 py-3 text-sm md:text-base text-tech-text-secondary hover:text-white border border-white/10 hover:border-tech-gold/50 hover:bg-white/5 rounded-full transition-all flex items-center gap-2 font-sans font-medium">
-              {content.ctaContact} <Mail size={16} className="text-tech-gold group-hover:rotate-12 transition-transform" />
+            <a href="#contact" className="w-full sm:w-auto justify-center group px-8 py-4 lg:px-6 lg:py-3 text-base lg:text-base text-tech-text-secondary hover:text-white active:bg-white/10 border border-white/10 hover:border-tech-gold/50 rounded-full transition-all flex items-center gap-2 font-sans font-medium active:scale-95">
+              {content.ctaContact} <Mail size={18} className="text-tech-gold lg:group-hover:rotate-12 transition-transform" />
             </a>
           </motion.div>
         </motion.div>
 
         <motion.div
           style={{ y: portraitY, opacity: portraitOpacity }}
-          className="lg:col-span-5 relative order-1 lg:order-2 flex justify-center lg:justify-end"
+          className="lg:col-span-5 relative order-1 lg:order-2 flex justify-center lg:justify-end hidden lg:flex"
         >
           <div className="absolute inset-0 bg-tech-orange/20 blur-[80px] rounded-full transform translate-y-10" />
 
@@ -144,7 +128,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9, x: 50 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="hidden lg:flex relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[550px] overflow-hidden"
+            className="relative w-64 h-64 md:w-80 md:h-80 lg:w-[450px] lg:h-[550px] overflow-hidden"
           >
             <img
               src="/hero.png"
@@ -159,21 +143,27 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <motion.div
+      <motion.a
+        href="#projects"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="hidden lg:flex absolute bottom-10 lg:left-1/5 items-center gap-4"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:bottom-10 lg:left-1/5 lg:translate-x-0 flex flex-col lg:flex-row items-center gap-2 lg:gap-4 z-40 group cursor-pointer"
       >
-        <motion.div animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-          <ChevronDown size={20} className="text-tech-gold" />
+        <motion.div
+          animate={{ y: [0, 5, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="p-2 rounded-full bg-white/5 border border-white/10 group-active:bg-tech-orange group-active:border-tech-orange transition-colors"
+        >
+          <ChevronDown size={20} className="text-tech-gold group-active:text-white" />
         </motion.div>
-        <span className="text-sm text-white uppercase tracking-widest font-mono ">
+        <span className="text-[10px] sm:text-xs lg:text-sm text-white/70 group-active:text-white uppercase tracking-widest font-mono transition-colors text-center">
           Desliza para conocer mas
         </span>
-      </motion.div>
+      </motion.a>
+
       <div
-        className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black to-transparent z-30 pointer-events-none"
+        className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-tech-bg to-transparent z-30 pointer-events-none"
       ></div>
     </section>
   );
